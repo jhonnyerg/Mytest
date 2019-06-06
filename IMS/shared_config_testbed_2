@@ -1,0 +1,26 @@
+# Deployment definitions
+home_domain=testbed2.unicauca.edu.co
+sprout_hostname=sprout.testbed2.unicauca.edu.co
+sprout_registration_store=vellum.testbed2.unicauca.edu.co
+hs_hostname=hs.testbed2.unicauca.edu.co:8888
+hs_provisioning_hostname=hs.testbed2.unicauca.edu.co:8889
+homestead_impu_store=vellum.testbed2.unicauca.edu.co
+ralf_hostname=ralf.testbed2.unicauca.edu.co:10888
+ralf_session_store=vellum.testbed2.unicauca.edu.co
+xdms_hostname=homer.testbed2.unicauca.edu.co:7888
+chronos_hostname=vellum.testbed2.unicauca.edu.co
+cassandra_hostname=vellum.testbed2.unicauca.edu.co
+
+# Email server configuration
+
+smtp_smarthost=127.0.0.1
+smtp_username=user
+smtp_password=password
+email_recovery_sender=clearwater@example.org
+
+
+# Keys
+signup_key=secret
+turn_workaround=secret
+ellis_api_key=secret
+ellis_cookie_key=secret

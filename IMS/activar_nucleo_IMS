@@ -1,0 +1,44 @@
+#!/bin/bash
+# -*- ENCODING: UTF-8 -*-
+
+#Nodo Vellum
+#sudo /usr/share/clearwater/bin/run-in-signaling-namespace nodetool status
+
+#Nodo Sprout
+#sudo cw-validate_{shared|fallback}_ifcs_xml
+
+
+sleep 2s
+echo "Restableciendo núcleo"
+
+sleep 2s
+sudo clearwater-etcdctl cluster-health
+
+sleep 3s
+sudo clearwater-etcdctl member list
+
+sleep 2s
+sudo /usr/share/clearwater/clearwater-config-manager/scripts/check_config_sync
+
+sleep 3s
+sudo monit monitor -g etcd
+sudo monit monitor -g clearwater_config_manager
+sudo monit monitor -g clearwater_queue_manager
+
+sleep 2s
+sudo monit summary
+
+#sudo /usr/share/clearwater/clearwater-cluster-manager/scripts/load_from_chronos_cluster vellum
+#sudo /usr/share/clearwater/clearwater-cluster-manager/scripts/load_from_memcached_cluster vellum
+
+#sudo /usr/share/clearwater/clearwater-cluster-manager/scripts/load_from_cassandra_cluster vellum
+
+sleep 2s
+sudo /usr/share/clearwater/clearwater-cluster-manager/scripts/check_cluster_state
+
+sleep 2s
+sudo rm /etc/clearwater/no_cluster_manager
+sudo monit monitor -g clearwater_cluster_manager
+
+sleep 2s
+sudo monit summary

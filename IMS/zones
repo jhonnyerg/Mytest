@@ -1,0 +1,3 @@
+zone "telco2.unicauca.edu.co" IN {
+        type master; file "/etc/bind/telco2.dnszones";
+        };

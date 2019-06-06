@@ -1,0 +1,13 @@
+#!/bin/bash
+# -*- ENCODING: UTF-8 -*-
+
+sudo monit stop -g etcd
+sudo monit stop -g clearwater_cluster_manager
+sudo monit stop -g clearwater_config_manager
+sudo monit stop -g clearwater_queue_manager
+sudo touch /etc/clearwater/no_cluster_manager
+sudo rm -rf  /var/lib/clearwater-etcd/*
+
+sleep 3s
+
+echo "Los servicios se pararon correctamente"
